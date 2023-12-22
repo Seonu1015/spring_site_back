@@ -2,7 +2,12 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.example.mapper.UsersMapper">
     <insert id="insert">
-    	insert into users(userid, name, email, password, avatar, regdate)
-    	values(#{userid), #{name}, #{email}, #{password}, #{avatar}, now())
+    	insert into users(email, password, regdate)
+        values(#{email}, #{password}, now())
     </insert>
+    <select id="read" resultType="hashmap">
+    	select *, date_format(regdate, '%Y-%m-%d %T') fmtdate
+    	from users
+    	where email = #{email}    	
+    </select>
 </mapper>

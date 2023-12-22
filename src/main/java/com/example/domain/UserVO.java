@@ -3,28 +3,9 @@ package com.example.domain;
 import java.util.*;
 
 public class UserVO {
-	private String userid;
-	private String name;
 	private String email;
 	private String password;
-	private String avatar;
 	private Date regdate;
-
-	public String getUserid() {
-		return userid;
-	}
-
-	public void setUserid(String userid) {
-		this.userid = userid;
-	}
-
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
 
 	public String getEmail() {
 		return email;
@@ -42,14 +23,6 @@ public class UserVO {
 		this.password = password;
 	}
 
-	public String getAvatar() {
-		return avatar;
-	}
-
-	public void setAvatar(String avatar) {
-		this.avatar = avatar;
-	}
-
 	public Date getRegdate() {
 		return regdate;
 	}
@@ -60,8 +33,8 @@ public class UserVO {
 
 	@Override
 	public String toString() {
-		return "UserVO [userid=" + userid + ", name=" + name + ", email=" + email + ", password=" + password
-				+ ", avatar=" + avatar + ", regdate=" + regdate + "]";
+		return "UserVO [email=" + email + ", password=" + password
+				+ ", regdate=" + regdate + "]";
 	}
 
 }
