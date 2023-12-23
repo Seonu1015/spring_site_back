@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.mapper.LinkMapper">
+	<select id="list_all" resultType="hashmap">
+		select l.*,
+			date_format(l.regdate, '%Y-%m-%d %T') fmtdate, categoryName
+		from links l, categories c
+		where l.user = #{user} and c.categoryId = l.categoryId
+		order by linkId desc
+	</select>
+	<select id="read" resultType="hashmap">
+		select *,
+			date_format(regdate, '%Y-%m-%d %T') fmtdate
+		from links
+		where linkId = #{linkId}
+	</select>
+	<insert id="insert">
+		insert into links(categoryId, user, linkName, link, regdate)
+		values(#{categoryId}, #{user}, #{linkName}, #{link}, now())
+	</insert>
+	<update id="update">
+		update links set categoryId=#{categoryId}, linkName = #{linkName}, link = #{link}
+		where linkId = #{linkId}
+	</update>
+	<delete id="delete">
+		delete from links
+		where linkId = #{linkId}
+	</delete>
+</mapper>

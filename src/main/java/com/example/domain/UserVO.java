@@ -33,8 +33,7 @@ public class UserVO {
 
 	@Override
 	public String toString() {
-		return "UserVO [email=" + email + ", password=" + password
-				+ ", regdate=" + regdate + "]";
+		return "UserVO [email=" + email + ", password=" + password + ", regdate=" + regdate + "]";
 	}
 
 }
