@@ -5,7 +5,16 @@ import java.util.*;
 public class UserVO {
 	private String email;
 	private String password;
+	private String photo;
 	private Date regdate;
+
+	public String getPhoto() {
+		return photo;
+	}
+
+	public void setPhoto(String photo) {
+		this.photo = photo;
+	}
 
 	public String getEmail() {
 		return email;
@@ -33,7 +42,6 @@ public class UserVO {
 
 	@Override
 	public String toString() {
-		return "UserVO [email=" + email + ", password=" + password + ", regdate=" + regdate + "]";
+		return "UserVO [email=" + email + ", password=" + password + ", photo=" + photo + ", regdate=" + regdate + "]";
 	}
-
 }
