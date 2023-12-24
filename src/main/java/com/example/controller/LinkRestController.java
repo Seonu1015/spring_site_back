@@ -4,6 +4,7 @@ import java.util.*;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -19,9 +20,14 @@ public class LinkRestController {
 	@Autowired
 	LinkDAO dao;
 	
-	@GetMapping("/list")
+	@GetMapping("/list_all")
 	public List<HashMap<String, Object>> listAll(@RequestParam("user") String user) {
 		return dao.listAll(user);
+	}
+	
+	@GetMapping("/list_flt")
+	public List<HashMap<String, Object>> listFlt(@ModelAttribute LinkVO vo) {
+		return dao.listFlt(vo);
 	}
 	
 	@GetMapping("/read")

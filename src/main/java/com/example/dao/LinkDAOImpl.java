@@ -40,4 +40,9 @@ public class LinkDAOImpl implements LinkDAO {
 		session.delete(namespace + ".delete", linkId);
 	}
 
+	@Override
+	public List<HashMap<String, Object>> listFlt(LinkVO vo) {
+		return session.selectList(namespace + ".list_flt", vo);
+	}
+
 }

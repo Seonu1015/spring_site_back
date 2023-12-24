@@ -8,6 +8,13 @@
 		where l.user = #{user} and c.categoryId = l.categoryId
 		order by linkId desc
 	</select>
+	<select id="list_flt" resultType="hashmap">
+		select l.*,
+			date_format(l.regdate, '%Y-%m-%d %T') fmtdate, categoryName
+		from links l, categories c
+		where l.user = #{user} and c.categoryId = l.categoryId and l.categoryId = #{categoryId}
+		order by linkId desc 
+	</select>
 	<select id="read" resultType="hashmap">
 		select *,
 			date_format(regdate, '%Y-%m-%d %T') fmtdate
