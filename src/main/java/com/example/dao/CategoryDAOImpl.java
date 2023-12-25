@@ -26,4 +26,19 @@ public class CategoryDAOImpl implements CategoryDAO {
 		return session.selectList(namespace + ".list", user);
 	}
 
+	@Override
+	public void update(CategoryVO vo) {
+		session.update(namespace + ".update", vo);
+	}
+
+	@Override
+	public void delete(int categoryId) {
+		session.delete(namespace + ".delete", categoryId);
+	}
+
+	@Override
+	public int check(CategoryVO vo) {
+		return session.selectOne(namespace + ".total", vo);
+	}
+
 }

@@ -21,6 +21,11 @@
 		from links
 		where linkId = #{linkId}
 	</select>
+	<select id="total" resultType="int">
+		select count(*) cnt
+		from links
+		where categoryId = #{categoryId}
+	</select>
 	<insert id="insert">
 		insert into links(categoryId, user, linkName, link, regdate)
 		values(#{categoryId}, #{user}, #{linkName}, #{link}, now())

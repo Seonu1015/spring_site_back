@@ -10,4 +10,18 @@
 		from categories
 		where user = #{user}
 	</select>
+	<select id="check" resultType="int">
+		select count(*) cnt
+		from categories
+		where categoryName=#{categoryName} and user=#{user}
+	</select>
+	<update id="update">
+		update categories
+		set categoryName = #{categoryName}
+		where categoryId = #{categoryId}
+	</update>
+	<delete id="delete">
+		delete from categories
+		where categoryId = #{categoryId}
+	</delete>
 </mapper>

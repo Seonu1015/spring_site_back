@@ -45,4 +45,9 @@ public class LinkDAOImpl implements LinkDAO {
 		return session.selectList(namespace + ".list_flt", vo);
 	}
 
+	@Override
+	public int total(int categoryId) {
+		return session.selectOne(namespace + ".total", categoryId);
+	}
+
 }
